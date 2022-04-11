@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>CarId</th>
+        <th>carModel</th>
+
+        <th>dateOfProduct</th>
+
+        <th>Update</th>
+
+        <th>Delete</th>
+    </tr>
+    <tr th:each="car: ${cars}">
+        <td th:text="${car.carId}" ></td>
+        <td th:text="${car.carModel}" ></td>
+        <td th:text="${car.dateOfProduct}" ></td>
+        <td><a th:href="@{/cars/update-car/{carId}(carId=${car.carId})}"><input type="submit" value="Update car"/></a></td>
+        <td><a th:href="@{/cars/delete-car/{carId}(carId=${car.carId})}"><input type="submit" value="Delete car"/></a></td>
+    </tr>
+</table>
+<br>
+<br>
+<a href="/cars/add-car"> Add new car</a>
+</body>
+</html>
